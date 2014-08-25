@@ -1,0 +1,40 @@
+<script src="/Documents/jquery-1.8.2.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    initUpload();    
+});
+
+
+function initUpload() {
+    if (_spPageContextInfo != "/") {
+        szSiteURL = _spPageContextInfo.webServerRelativeUrl;
+    } else {
+        szSiteURL = "";
+    }
+    if (typeof (webURL) == 'undefined' || webURL == '') {
+        webURL = _spPageContextInfo.webAbsoluteUrl;
+    }
+    var scriptbase = webURL + "/_layouts/15/";
+    $.getScript(scriptbase + "SP.Runtime.js", function () {
+        $.getScript(scriptbase + "SP.js", function(){/*console.log("sp js loaded")*/});
+    });});
+    $('#divFileAttach').jqueryUploadFile({
+        isMultiple:false,
+        isList:true,
+        szListName:"FileAttachPOC",
+        szDocLibInternalName: "",
+        szSiteURL: szSiteURL,
+        szFolderName: ''
+    });
+    $('#divFileUpload').jqueryUploadFile({
+        isMultiple:true,
+        isList:false,
+        szListName:"",
+        szDocLibInternalName: "FileUploadPOC",
+        szSiteURL: szSiteURL,
+        szFolderName: ''
+    });
+}
+</script>
+File Attach: <div id="divFileAttach"></div>
+File Upload: <div id="divFileUpload"></div>
