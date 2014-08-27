@@ -15,8 +15,11 @@ This is a sharepoint 2013 client side file upload plugin. this can be used to:
 Limitation:
 
   1) Requires jquery plugin.
+  
   2) Works for SharePoint 2013 version only.
+  
   3) Requires the client browser to have HTML5 support (IE 10+).
+  
   
 The detailed parameter description is as below:
   Parameter Description:
